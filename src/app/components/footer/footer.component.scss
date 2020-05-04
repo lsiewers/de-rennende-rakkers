@@ -1,0 +1,79 @@
+@import '../../../assets/scss/all';
+
+.footer {
+  background-color: color(red);
+  margin-top: size(8);
+  color: color(white);
+
+  @include respond-to(mobile) { margin-bottom: size(4); }
+
+  &__main {
+    max-width: 1440px;
+    padding: size(1);
+    margin: 0 auto;
+
+    @include respond-to(large) {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    & > section {
+
+      @include respond-to(large) { padding: size(2); }
+      @include respond-to(mobile) { padding: size(1) 0; }
+
+      & > h1 {
+        @extend %h5;
+        margin-bottom: size(1);
+      }
+    }
+
+    &__contact {
+      a {
+        @extend %btn-white;
+        @extend %btn;
+        margin: size(.25) 0;
+
+        &:not(:last-child) { @extend %btn-outline; }
+      }
+    }
+
+    &__social {
+
+      a {
+        @extend %btn;
+        @extend %btn-white;
+        display: flex;
+        align-items: center;
+
+        &::before { content: ''; }
+
+        svg-icon-sprite {
+          @include size(24px);
+          margin-right: size(.25);
+        }
+      }
+    }
+
+    &__data {
+      a {
+        @extend %btn;
+        @extend %btn-white;
+      }
+      p { margin: size(.25) 0; }
+    }
+  }
+
+  &__sub {
+    background-color: darken(color(red), 5%);
+    color: rgba(color(white), 0.4);
+    padding: size(.75) size(1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    p { margin: size(.25) 0 }
+  }
+
+}

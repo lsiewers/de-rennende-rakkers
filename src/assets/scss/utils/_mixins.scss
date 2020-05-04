@@ -1,0 +1,28 @@
+@mixin abs($top: null, $right: null, $bottom: null, $left: null) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin rel($top: null, $right: null, $bottom: null, $left: null) {
+  position: relative;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin fxd($top: null, $right: null, $bottom: null, $left: null) {
+  position: fixed;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin size($height: 100%, $width: $height) {
+  height: $height;
+  width: $width;
+}

@@ -1,0 +1,24 @@
+@import '../assets/scss/all';
+
+:host { overflow-x: hidden }
+
+.load-screen {
+  @extend %fullscreen;
+  @include fxd(0, null, null, 0);
+  background-color: color(white);
+  z-index: z-index(loading);
+
+  svg-icon-sprite {
+    @extend %centralize;
+    padding: size(1);
+    max-width: 560px;
+    color: black;
+    animation: loading cubic-bezier(0.645, 0.045, 0.355, 1) 1s infinite alternate;
+    will-change: opacity;
+  }
+}
+
+@keyframes loading {
+  from { opacity: 1; }
+  to { opacity: .2; }
+}

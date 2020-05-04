@@ -1,0 +1,7 @@
+// consistent size function
+
+$size: 24;
+
+@function size($ratio) {
+  @return $size * $ratio + px;
+}

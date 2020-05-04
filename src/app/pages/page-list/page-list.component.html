@@ -1,0 +1,38 @@
+<section class="page-list" *ngIf="category" [class.img--right]="index % 2">
+  <div class="page-list__wrapper">
+
+    <figure class="page-list__gallery" *ngIf="img">
+      <img
+        *ngIf="img.type !== 'video' && !animate"
+        (load)="dataLoaded = true"
+        [src]="img.sizes?.large"
+        [alt]="img.title"
+        @fade
+      >
+      <video
+        *ngIf="img.type == 'video' && !animate"
+        (loadedmetadata)="dataLoaded = true"
+        appObserver
+        (viewChange)="playVideo($event)"
+        @fade
+        async
+        loop
+        playsinline
+        muted
+        autoplay
+      >
+        <source [src]="img.url" [type]="'video/' + img.subtype">
+      </video>
+    </figure>
+    <div class="page-list__list">
+      <h1 class="page-list__list__title">{{ category.name }}</h1>
+      <ul>
+        <li class="page-list__list__item" *ngFor="let page of pages; let i = index">
+          <a [routerLink]="'/' + category.slug+'/'+page.slug" (mouseover)="changeGallery(i)">
+            {{ page.title.rendered }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,51 @@
+%btn {
+  @extend %font-bold;
+  @extend %transition-fast;
+  cursor: pointer;
+  display: inline-block;
+  appearance: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: .6em .8em .6em 1.2em;
+  background-color: transparent;
+  text-align: left;
+  line-height: 1;
+  transition-property: background-color;
+  border-radius: em(10px);
+
+  &::before {
+    @include size(1.5em);
+    @include abs(null, null, null, .4em);
+  }
+}
+
+%btn-outline {
+  @extend %btn;
+  border: 3px solid;
+}
+
+%btn-white {
+  color: color(white);
+  border-color: color(white);
+  outline-color: color(white);
+  &::before {
+    content: url('assets/icons/paw.svg');
+    opacity: .2;
+  }
+
+  &:hover { background-color: rgba(color(white), .1) }
+}
+
+%btn-black {
+  color: color(black);
+  border-color: color(black);
+  outline-color: color(black);
+
+  &::before {
+    content: url('assets/icons/paw-black.svg');
+    opacity: .15;
+  }
+
+  &:hover { background-color: rgba(color(black), .1) }
+}

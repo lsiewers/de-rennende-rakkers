@@ -1,0 +1,47 @@
+<app-facebook></app-facebook>
+
+<footer class="footer">
+  <header>
+    <div class="border color--red">
+      <div class="border__busses"></div>
+    </div>
+  </header>
+
+  <main class="footer__main">
+
+      <section class="footer__main__social">
+        <h1>Volg ons</h1>
+        <a href="https://nl-nl.facebook.com/derennenderakkers/" target="_blank">
+          <svg-icon-sprite [src]="'assets/sprites/sprite.svg#facebook'"></svg-icon-sprite>
+          facebook
+        </a>
+        <a href="https://www.instagram.com/derennenderakkers/" target="_blank">
+          <svg-icon-sprite [src]="'assets/sprites/sprite.svg#instagram'"></svg-icon-sprite>
+          instagram
+        </a>
+      </section>
+
+    <section class="footer__main__contact">
+      <h1>Contact opnemen</h1>
+      <a href="tel:0624484589">Bel ons</a>
+      <a href="mailto:derennenderakkers@outlook.com">Mail ons</a>
+      <a
+        href="https://www.google.com/maps/dir//Haringweg+11,+8251+RM+Dronten/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x47c62b2ad0a50f31:0x8dcb63dceae1da81?sa=X&ved=2ahUKEwiphd-E-vfhAhXQZ1AKHQe3CcMQwwUwAHoECAoQAw"
+        target="_blank">
+        Routebeschrijving
+      </a>
+      <a [routerLink]="'/informatie/contact'">Contactgegevens</a>
+    </section>
+
+    <section class="footer__main__data">
+      <h1>Gegevens</h1>
+      <p>De Rennende Rakkers v.o.f.</p>
+      <p>KVK-nummer: 56817045</p>
+      <a [routerLink]="'/informatie/algemene-voorwaarden'">Algemene Voorwaarden</a>
+    </section>
+  </main>
+  <footer class="footer__sub">
+      <p>&copy; {{currentYear}} De Rennende Rakkers, alle rechten voorbehouden</p>
+      <a href="//luuksiewers.nl" target="_blank">Website door Luuk Siewers</a>
+  </footer>
+</footer>

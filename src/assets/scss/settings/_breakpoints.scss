@@ -1,0 +1,14 @@
+@import '../../../../node_modules/breakpoint-sass/stylesheets/breakpoint';
+
+@include add-breakpoint('mobile', (0px 767px));
+@include add-breakpoint('mobile-small', (0px 479px));
+@include add-breakpoint('mobile-medium', (480px 640px));
+@include add-breakpoint('mobile-big', (640px 779px));
+
+@include add-breakpoint('large', (768px));
+
+@include add-breakpoint('tablet', (768px 1279px));
+@include add-breakpoint('tablet-small', (768px 1020px));
+@include add-breakpoint('tablet-medium', (1020px 1279px));
+
+@include add-breakpoint('desktop', (1280px));

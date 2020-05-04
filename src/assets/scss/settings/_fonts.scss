@@ -1,0 +1,55 @@
+$futura-normal:  'futura-pt', sans-serif;
+$futura-bold:  'futura-pt-bold', sans-serif;
+$futura-condensed:  'futura-pt-condensed', sans-serif;
+
+%font-body {
+  font-family: $futura-normal;
+  font-style: normal;
+}
+
+%font-title {
+  font-family: $futura-condensed;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1;
+  // letter-spacing: -.1em;
+}
+
+%font-bold {
+  font-family: $futura-bold;
+  font-style: normal;
+}
+
+:host {
+  @extend %font-body;
+  -webkit-font-smoothing: antialiased;
+}
+
+%h1 {
+  @include respond-to(large) { font-size: 4.8rem; }
+  @include respond-to(mobile) { font-size: 4rem; }
+}
+%h2 {
+  @include respond-to(large) { font-size: 3.6rem; }
+  @include respond-to(mobile) { font-size: 3rem; }
+}
+%h3 {
+  @include respond-to(large) { font-size: 3rem; }
+  @include respond-to(mobile) { font-size: 2.4rem; }
+}
+%h4 {
+  @include respond-to(large) { font-size: 2.4rem; }
+  @include respond-to(mobile) { font-size: 1.8rem; }
+}
+%h5 {
+  @include respond-to(large) { font-size: 1.8rem; }
+  @include respond-to(mobile) { font-size: 1.2rem; }
+}
+%h6 {
+  @include respond-to(large) { font-size: 1.2rem; }
+  @include respond-to(mobile) { font-size: 1rem; }
+}
+
+h1, h2, h3, h4, h5, h6 { @extend %font-title }
+blockquote, i { font-style: italic }
+strong, b { @extend %font-bold }

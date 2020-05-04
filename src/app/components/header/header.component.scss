@@ -1,0 +1,68 @@
+@import '../../../assets/scss/all';
+
+.header {
+  @extend %fullscreen;
+  position: relative;
+  overflow: hidden;
+
+  &__title {
+    @extend %centralize-vertical;
+    padding: 0 size(1) size(3);
+
+    @include respond-to(mobile) {
+      width: 125vw;
+      top: 40%;
+    }
+    @include respond-to(large) { width: 100vw; }
+
+    svg {
+      fill: white;
+      overflow: visible;
+
+      @include respond-to(mobile) { font-size: rem(240) }
+      @include respond-to(large) { font-size: rem(200); }
+    }
+  }
+
+  &__bg {
+    @include abs(0, null, null, 0);
+    @extend %fullsize;
+    overflow: hidden;
+    z-index: -1;
+
+    video, img {
+      @include abs(0,0,0,50%);
+      @extend %fullsize;
+      object-fit: cover;
+      margin: auto;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__scroll-indicator {
+    color: white;
+    transform: rotate(90deg);
+
+    @include respond-to(mobile) {
+      @include size(size(2));
+      @include abs(null, size(1), size(8.5), null);
+    }
+    @include respond-to(large) {
+      @include size(size(3));
+      @include abs(null, size(2), size(7), null);
+    }
+
+    svg-icon-sprite {
+      @extend %fullsize;
+      display: block;
+      transform: translate(0) scaleY(1);
+      animation: bounce .8s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+      will-change: transform;
+    }
+  }
+}
+
+@keyframes bounce {
+  from { transform: translateX(0) scaleX(1) }
+  to { transform: translateX(size(1)) scaleX(.85) }
+}

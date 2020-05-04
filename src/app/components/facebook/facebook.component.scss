@@ -1,0 +1,40 @@
+@import '../../../assets/scss/all';
+
+.facebook-block {
+  padding: size(1);
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @include respond-to(large) {
+    display: flex;
+    justify-content: stretch;
+  }
+  @include respond-to(desktop) {
+    &__images, &__text { padding: size(2); }
+  }
+  @include respond-to(tablet) {
+    &__images, &__text { padding: size(1); }
+  }
+
+  &__images {
+    height: 560px;
+
+    img {
+      @extend %fullsize;
+      display: block;
+      object-fit: contain;
+    }
+  }
+
+  &__text {
+    &__title { @extend %h3 }
+    &__btn {
+      @extend %btn;
+      @extend %btn-black;
+      font-size: 1.2em;
+      margin-top: size(1);
+      display: inline-flex;
+    }
+  }
+}

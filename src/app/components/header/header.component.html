@@ -1,0 +1,49 @@
+<app-navigation [stickyNav]="inView"></app-navigation>
+
+<header appObserver (viewChange)="inView = $event.inView" class="header" *ngIf="header">
+  <h1 class="header__title">
+    <svg viewBox="0 0 2400 300">
+        <path id="curve" d="M50,300c10,0,313-171,577-121s347,153,662,77c0,0,452-177,817-21" fill="none" />
+        <text>
+          <textPath alignment-baseline="top" xlink:href="#curve">
+              {{ header.title }}
+          </textPath>
+        </text>
+      </svg>
+  </h1>
+
+  <figure class="header__bg">
+    <img
+      @fade
+      class="header__bg__img"
+      *ngIf="header.background?.type == 'image'"
+      [src]="header.background.url"
+      [alt]="header.background.title"
+      (load)="isLoaded = true"
+      [class.fade--in]="isLoaded"
+    />
+    <video
+      @fade
+      class="header__bg__video"
+      *ngIf="header.background?.type == 'video'"
+      (loadedmetadata)="playVideo($event)"
+      async
+      loop
+      playsinline
+      muted
+      autoplay
+    >
+      <source
+        [src]="header.background.url"
+        [title]="header.background.title"
+        [type]="'video/' + header.background.subtype">
+      Uw browser ondersteunt het video-formaat helaas niet. We raden aan om een andere browser te gebruiken of uw huidige browser te updaten.
+    </video>
+  </figure>
+
+  <div class="header__scroll-indicator">
+      <svg-icon-sprite
+        [src]="'assets/sprites/sprite.svg#arrow'"
+      ></svg-icon-sprite>
+  </div>
+</header>

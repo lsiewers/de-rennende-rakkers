@@ -1,0 +1,148 @@
+@import '../../../assets/scss/all';
+
+.nav {
+  @extend %transition-fast;
+  z-index: z-index(nav);
+  width: 100vw;
+  display: flex;
+  align-items: flex-start;
+  padding: size(.5) size(1);
+  background-color: rgba(color(white), 0);
+  transform-origin: top center;
+  transition-property: background-color, box-shadow;
+
+  @include respond-to(mobile) {
+    @include fxd(unset, null, 0, 0);
+    box-shadow: 0px -3px 5px rgba(black, .2);
+    background-color: rgba(color(white), 1);
+
+    &::after, &::before {
+      @include size(size(4), size(2));
+      content: "";
+      position: fixed;
+      bottom: 0;
+      z-index: z-index(nav) + 1;
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(90deg, rgba(white, 0) 0%, rgba(white, 1) 100%);
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(-90deg, rgba(white, 0) 0%, rgba(white, 1) 100%);
+    }
+  }
+
+  @include respond-to(large) {
+    @include fxd(0, null, null, 0);
+    &.is--sticky {
+      background-color: rgba(color(white), 1);
+      box-shadow: 0px 3px 5px rgba(black, .2);
+    }
+  }
+
+  &__logo {
+    @extend %transition-fast;
+    transition-property: height, width, color;
+    margin-right: size(1);
+    flex-shrink: 0;
+
+    @include respond-to(large) {
+      .nav:not(.is--sticky) & {
+        @include size(em(90px), em(200px));
+        color: color(white);
+      }
+
+      .nav.is--sticky & {
+        color: color(black);
+        @include size(em(60px), em(120px));
+      }
+    }
+
+    @include respond-to(mobile) {
+      @include size(em(72px), em(144px));
+      @include fxd(size(1), null,  null, size(1));
+      color: color(white);
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: flex-start;
+    padding: 6px;
+
+    @include respond-to(mobile) { padding-right: size(1.5); }
+
+    &__item {
+      margin-left: size(.5);
+      position: relative;
+
+      & > button {
+        @extend %btn-outline;
+        @extend %btn-black;
+        @extend %transition-fast;
+        font-size: 1.2em;
+
+
+        @include respond-to(large) {
+          .nav:not(.is--sticky) & {
+            // copied from btn-white extend, since it can't be used inside include
+            color: color(white);
+            border-color: color(white);
+            outline-color: color(white);
+            &::before {
+              content: url('assets/icons/paw.svg');
+              opacity: .2;
+            }
+
+            &:hover { background-color: rgba(color(white), .1) }
+           }
+        }
+      }
+
+      &.dropdown--open > ul {
+        max-height: 240px;
+        overflow: auto;
+      }
+
+      &__dropdown {
+        @extend %transition-normal;
+        transition-property: max-height;
+        will-change: max-height;
+        background-color: color(white);
+        max-height: 0px;
+        overflow: hidden;
+        border-radius: em(10px);
+
+        @include respond-to(mobile) {
+          @include fxd(null, null, 0, 0);
+          width: 100vw;
+          z-index: z-index(nav) + 1;
+          box-shadow: 0px -3px 5px rgba(color(black), .4);
+        }
+
+        @include respond-to(large) {
+          @include abs(null, null, -#{size(1.25)}, -3px);
+          transform: translateY(100%);
+          width: 240px;
+          box-shadow: 0px 3px 5px rgba(color(black), .2);
+        }
+
+        &__item {
+          font-size: 1.2em;
+          margin: size(.25) 3px;
+
+          .is--active { pointer-events: none }
+          &:first-child { margin-top: size(.5) }
+          &:last-child { margin-bottom: size(.5) }
+          a {
+            @extend %btn;
+            @extend %btn-black;
+          }
+        }
+      }
+    }
+  }
+}

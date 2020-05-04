@@ -1,0 +1,42 @@
+.border-container {
+  position: relative;
+}
+
+.border {
+  @include size(110px, 100vw);
+  position: absolute;
+  transform: translateY(-100%);
+  background-size: cover;
+  background-position: bottom left;
+  background-repeat: repeat-x;
+
+  &:not(.color--red) { background-image: url('assets/icons/border.svg') }
+  &.color--red { background-image: url('assets/icons/border-red.svg') }
+
+  &__busses {
+    &::before, &::after {
+      content: "";
+      background-size: contain;
+      background-repeat: no-repeat;
+      display: block;
+      float: left;
+      margin-left: size(1);
+    }
+
+    &::before { background-image: url('assets/img/bus.png'); }
+    &::after { background-image: url('assets/img/bus.png'); }
+
+    @include respond-to(mobile) {
+      @include size(90px, 100vw);
+        &::before, &::after { @include size(60px, 120px); }
+        &::before { transform: translateY(-29px) rotate(-12deg); }
+        &::after { transform: translateY(-48px) rotate(-2deg); }
+    }
+
+    @include respond-to(large) {
+      &::before, &::after { @include size(80px, 160px); }
+      &::before { transform: translateY(-48px) rotate(-9deg); }
+      &::after  { transform: translateY(-64px) rotate(1deg); }
+    }
+  }
+}

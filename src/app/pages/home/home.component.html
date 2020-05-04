@@ -1,0 +1,23 @@
+<app-header [header]="header"></app-header>
+
+<main class="border-container">
+    <div class="border">
+      <div class="border__busses"></div>
+    </div>
+
+    <article class="intro">
+      <div class="intro__portraits">
+        <figure class="intro__portraits__portrait" *ngFor="let portrait of portraits">
+          <img class="intro__portraits__portrait__img" [src]="portrait.sizes.medium" [alt]="portrait.title">
+          <figcaption class="intro__portraits__portrait__caption">
+            <img src="assets/img/bus.png" alt="{{portrait.title}}'s bus">
+            {{portrait.title}}
+          </figcaption>
+        </figure>
+      </div>
+
+      <p class="intro__content content" *ngIf="page?.acf.intro" [innerHTML]="page?.acf.intro"></p>
+    </article>
+</main>
+
+<app-page-list *ngFor="let category of categories; let i = index" [category]="category" [index]="i"></app-page-list>

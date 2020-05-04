@@ -1,0 +1,13 @@
+<app-header [header]="header"></app-header>
+
+<main class="border-container">
+    <div class="border">
+      <div class="border__busses"></div>
+    </div>
+    <ng-container *ngIf="page">
+        <div class="content intro" [innerHTML]="page.acf.intro | safeHtml"></div>
+        <div class="content" [innerHTML]="page.content.rendered | safeHtml"></div>
+    </ng-container>
+</main>
+
+<app-page-list [category]="category"></app-page-list>

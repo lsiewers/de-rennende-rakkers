@@ -1,0 +1,59 @@
+@import '../../../assets/scss/all';
+
+.intro {
+  padding: size(1) 0;
+  display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @include respond-to(mobile) { flex-direction: column; }
+
+  &__portraits {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include respond-to(mobile) { width: 100%; }
+    @include respond-to(large) {  }
+    @include respond-to(tablet) { padding:  size(.5) size(2); }
+    @include respond-to(desktop) { padding:  size(.5) size(4); }
+
+    &__portrait {
+      display: inline-block;
+      margin-top: size(1.5);
+
+      &__img {
+        @include size(#{rem(210px)});
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      &__caption {
+        @extend %font-bold;
+        @extend %h5;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+
+        img {
+          width: rem(100px);
+          margin: size(.75);
+        }
+      }
+    }
+  }
+
+  &__content {
+    @include respond-to(tablet) {
+      padding: size(2);
+      width: auto;
+      overflow: auto;
+
+      h1 {
+        word-break: break-word;
+        hyphens: auto;
+      }
+    }
+    p { font-size: 1.2em; }
+  }
+}

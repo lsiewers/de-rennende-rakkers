@@ -1,0 +1,28 @@
+<nav class="nav" [class.is--sticky]="!stickyNav || isMobile">
+  <a class="nav__logo" [routerLink]="'/'" title="De Rennende Rakkers">
+    <svg-icon-sprite
+      [src]="'assets/sprites/sprite.svg#logo'"
+    ></svg-icon-sprite>
+  </a>
+  <ul class="nav__list">
+    <li
+      class="nav__list__item"
+      *ngFor="let item of navItems; let i = index"
+      (click)="triggerDropdown(i)"
+      [class.dropdown--open]="item?.dropdownActive"
+      >
+        <button (clickOutside)="item.dropdownActive = false">
+            {{ item.name }}
+        </button>
+        <ul class="nav__list__item__dropdown">
+          <ng-container *ngFor="let page of pages">
+            <li class="nav__list__item__dropdown__item" *ngIf="page.categories[0] === item.id" >
+              <a [routerLink]="'/' + item.slug + '/' + page.slug" [routerLinkActive]="'is--active'">
+                {{page.title.rendered}}
+              </a>
+            </li>
+          </ng-container>
+        </ul>
+      </li>
+  </ul>
+</nav>
