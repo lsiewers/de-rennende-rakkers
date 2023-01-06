@@ -16,8 +16,8 @@
   "dependencies": {
     "@angular/animations": "^15.0.4",
     "@angular/common": "^15.0.4",
-    "@angular/compiler": "7.2.14",
-    "@angular/core": "7.2.14",
+    "@angular/compiler": "9.1.13",
+    "@angular/core": "9.1.13",
     "@angular/forms": "^15.0.4",
     "@angular/http": "7.2.14",
     "@angular/platform-browser": "^15.0.4",
@@ -30,7 +30,7 @@
     "rxjs": "^6.5.1",
     "rxjs-compat": "^6.5.1",
     "tslib": "^1.9.0",
-    "zone.js": "^0.8.29"
+    "zone.js": "^0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.0.4",
