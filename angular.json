@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Wordpress Angular": {
+    "derennenderakkers": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -48,18 +48,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Wordpress Angular:build"
+            "browserTarget": "derennenderakkers:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Wordpress Angular:build:production"
+              "browserTarget": "derennenderakkers:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Wordpress Angular:build"
+            "browserTarget": "derennenderakkers:build"
           }
         },
         "test": {
@@ -115,7 +115,6 @@
       }
     }
   },
-  "defaultProject": "Wordpress Angular",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
