@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-facebook',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./facebook.component.scss']
 })
 export class FacebookComponent implements OnInit {
-  wpBase = '/nieuw/wp-content/themes/ng-wp-theme-master/dist';
+  wpBase = environment.wpBase;
 
   constructor() { }
 

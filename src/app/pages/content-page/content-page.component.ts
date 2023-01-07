@@ -6,6 +6,7 @@ import { Post } from '../../models/post';
 import 'rxjs/add/operator/switchMap';
 import { Header } from 'app/models/header';
 import { Category } from 'app/models/category';
+import { environment } from 'environments/environment';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class ContentPageComponent implements OnInit {
   content: string;
   page: Post;
   category: Category;
+  wpBase = environment.wpBase;
 
   constructor( private pagesService: PostsService, private route: ActivatedRoute, private router: Router ) { }
 

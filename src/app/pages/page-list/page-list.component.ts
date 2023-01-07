@@ -5,6 +5,7 @@ import { PostsService } from '../posts.service';
 import { ActivatedRoute } from '@angular/router';
 import { trigger, style, transition, animate } from '@angular/animations';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-page-list',
@@ -33,6 +34,7 @@ export class PageListComponent implements OnInit, OnChanges {
   dataLoaded = false;
   animDuration = 400;
   isMobile: boolean;
+  wpBase = environment.wpBase;
 
   constructor(private postsService: PostsService, private route: ActivatedRoute, private deviceService: DeviceDetectorService) {}
 
@@ -48,7 +50,7 @@ export class PageListComponent implements OnInit, OnChanges {
 
         if (this.pages[0]) {
           if (this.pages[0].acf.header_image) {
-            this.img =  this.pages[0].acf.header_image;
+            this.img = this.pages[0].acf.header_image;
           } else { this.img =  this.pages[0].acf.header_video; }
         }
       });

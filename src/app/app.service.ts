@@ -6,7 +6,7 @@ import { environment } from 'environments/environment';
 @Injectable()
 export class AppService {
 
-private _wpBase = environment.wpBase;
+private _wpBase = environment.apiRef;
 
 constructor(private http: HttpClient) { }
   getMetadata(): Observable<any> {

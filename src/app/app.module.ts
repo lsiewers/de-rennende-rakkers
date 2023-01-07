@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -16,7 +16,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
 import { ClickOutsideModule } from 'ng-click-outside';
-import { DeviceDetectorModule } from 'ngx-device-detector';
+import { DeviceDetectorService } from 'ngx-device-detector';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { ObserverDirective } from './directives/observer.directive';
 import { FacebookComponent } from './components/facebook/facebook.component';
@@ -42,9 +42,12 @@ import { FacebookComponent } from './components/facebook/facebook.component';
     IconSpriteModule,
     ClickOutsideModule,
     BrowserAnimationsModule,
-    DeviceDetectorModule.forRoot()
   ],
-  providers: [],
+  providers: [DeviceDetectorService],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

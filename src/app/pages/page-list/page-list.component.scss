@@ -61,7 +61,7 @@
     @include respond-to(mobile) { padding: size(2) 0 }
 
     &::after {
-      content: url('assets/icons/paw.svg');
+      content: url('#{$wp_path}assets/icons/paw.svg');
       @include abs(null, 0, -#{size(1)}, null);
       opacity:.15;
 

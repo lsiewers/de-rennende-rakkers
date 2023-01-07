@@ -1,10 +1,10 @@
 <section class="facebook-block">
   <figure class="facebook-block__images">
     <img
-      srcset="
-        assets/img/facebook.png 100w,
-        assets/img/facebook@2x.png 540w,"
-      src="assets/img/facebook@2x.png"
+      [srcset]="
+        wpBase + 'assets/img/facebook.png 100w, ' +
+        wpBase + 'assets/img/facebook@2x.png 540w'"
+      [src]="wpBase + 'assets/img/facebook@2x.png'"
       alt="De Rennende Rakkers op Facebook"
       sizes="(min-width: 960px) 540px, 100vw"
     >

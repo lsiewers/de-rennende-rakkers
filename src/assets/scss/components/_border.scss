@@ -10,8 +10,8 @@
   background-position: bottom left;
   background-repeat: repeat-x;
 
-  &:not(.color--red) { background-image: url('assets/icons/border.svg') }
-  &.color--red { background-image: url('assets/icons/border-red.svg') }
+  &:not(.color--red) { background-image: url('#{$wp_path}assets/icons/border.svg') }
+  &.color--red { background-image: url('#{$wp_path}assets/icons/border-red.svg') }
 
   &__busses {
     &::before, &::after {
@@ -23,8 +23,8 @@
       margin-left: size(1);
     }
 
-    &::before { background-image: url('assets/img/bus.png'); }
-    &::after { background-image: url('assets/img/bus.png'); }
+    &::before { background-image: url('#{$wp_path}assets/img/bus.png'); }
+    &::after { background-image: url('#{$wp_path}assets/img/bus.png'); }
 
     @include respond-to(mobile) {
       @include size(90px, 100vw);

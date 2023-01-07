@@ -1,6 +1,7 @@
 import { Component, Input, AfterViewInit} from '@angular/core';
 import { Header } from 'app/models/header';
 import { trigger , style, transition, animate } from '@angular/animations';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -22,6 +23,7 @@ export class HeaderComponent implements AfterViewInit {
   @Input() header: Header;
   inView = true;
   isLoaded = false;
+  wpBase = environment.wpBase;
 
   constructor() {
   }

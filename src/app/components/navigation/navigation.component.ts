@@ -3,6 +3,7 @@ import { NavItem } from '../../models/navItem';
 import { PostsService } from 'app/pages/posts.service';
 import { Post } from 'app/models/post';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-navigation',
@@ -15,6 +16,7 @@ export class NavigationComponent implements OnInit {
   navItems: NavItem[];
   pages: Post[];
   isMobile = false;
+  wpBase = environment.wpBase;
 
   constructor(private postsService: PostsService, private deviceService: DeviceDetectorService) { }
 

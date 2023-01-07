@@ -93,7 +93,7 @@
             border-color: color(white);
             outline-color: color(white);
             &::before {
-              content: url('assets/icons/paw.svg');
+              content: url('#{$wp_path}assets/icons/paw.svg');
               opacity: .2;
             }
 

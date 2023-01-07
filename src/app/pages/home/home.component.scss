@@ -14,7 +14,7 @@
     align-items: center;
 
     @include respond-to(mobile) { width: 100%; }
-    @include respond-to(large) {  }
+    // @include respond-to(large) {  }
     @include respond-to(tablet) { padding:  size(.5) size(2); }
     @include respond-to(desktop) { padding:  size(.5) size(4); }
 

@@ -3,6 +3,7 @@ import { Post } from 'app/models/post';
 import { Category } from 'app/models/category';
 import { PostsService } from '../posts.service';
 import { Header } from 'app/models/header';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit {
   page: Post;
   categories: Category[];
   header: Header = {background: {type: '', subtype: '', url: '', title: ''}, title: ''};
-  wpBase = '/nieuw/wp-content/themes/ng-wp-theme-master/dist';
+  wpBase = environment.wpBase;
   portraits = [];
   assetsPath: string;
 

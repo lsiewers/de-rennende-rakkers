@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AppService } from './app.service';
 import { Router, NavigationStart, NavigationEnd, NavigationCancel } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
 })
 export class AppComponent implements AfterViewInit {
   loading;
+  wpBase = environment.wpBase;
 
   constructor(
       private router: Router

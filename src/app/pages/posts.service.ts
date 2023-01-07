@@ -8,7 +8,7 @@ import { Category } from 'app/models/category';
 @Injectable()
 export class PostsService {
 
-  private _wpBase = environment.wpBase;
+  private _wpBase = environment.apiRef;
 
   constructor(private http: HttpClient) { }
 
