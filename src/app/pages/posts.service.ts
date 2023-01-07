@@ -8,28 +8,28 @@ import { Category } from 'app/models/category';
 @Injectable()
 export class PostsService {
 
-  private _wpBase = environment.apiRef;
+  private _apiRef = environment.apiRef;
 
   constructor(private http: HttpClient) { }
 
   getPages(): Promise<Post[]> {
-    return this.http.get<Post[]>(this._wpBase + 'pages').toPromise();
+    return this.http.get<Post[]>(this._apiRef + 'pages').toPromise();
   }
 
   getPosts(): Promise<Post[]> {
-    return this.http.get<Post[]>(this._wpBase + 'posts').toPromise();
+    return this.http.get<Post[]>(this._apiRef + 'posts').toPromise();
   }
 
   getPost(slug: string): Promise<Post[]> {
-    return this.http.get<Post[]>(this._wpBase + `posts?slug=${slug}`).toPromise();
+    return this.http.get<Post[]>(this._apiRef + `posts?slug=${slug}`).toPromise();
   }
 
   getCategories(): Promise<Category[]> {
-    return this.http.get<Category[]>(this._wpBase + 'categories').toPromise();
+    return this.http.get<Category[]>(this._apiRef + 'categories').toPromise();
   }
 
   getCategory(id: number): Promise<Post[]> {
-    return this.http.get<Post[]>(this._wpBase + `posts?categories=${id}`).toPromise();
+    return this.http.get<Post[]>(this._apiRef + `posts?categories=${id}`).toPromise();
   }
 
 }

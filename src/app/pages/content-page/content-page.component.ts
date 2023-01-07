@@ -37,9 +37,9 @@ export class ContentPageComponent implements OnInit {
     .subscribe(
       (page: Post[]) => {
         this.page = page[0];
-        if (this.page.acf.header_image) {
-          this.header.background =  this.page.acf.header_image;
-        } else { this.header.background =  this.page.acf.header_video; }
+        if (this.page.acf.header.header_image) {
+          this.header.background =  this.page.acf.header.header_image;
+        } else { this.header.background =  this.page.acf.header.header_video; }
         this.header.title = this.page.title.rendered;
         this.content = this.page.content.rendered;
 

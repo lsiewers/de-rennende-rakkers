@@ -6,7 +6,7 @@
         <path id="curve" d="M50,300c10,0,313-171,577-121s347,153,662,77c0,0,452-177,817-21" fill="none" />
         <text>
           <textPath alignment-baseline="top" xlink:href="#curve">
-              {{ header.title }}
+              {{ header?.title }}
           </textPath>
         </text>
       </svg>
@@ -25,9 +25,7 @@
     <video
       @fade
       class="header__bg__video"
-      *ngIf="header.background?.type == 'video'"
-      (loadedmetadata)="playVideo($event)"
-      async
+      *ngIf="header"
       loop
       playsinline
       muted

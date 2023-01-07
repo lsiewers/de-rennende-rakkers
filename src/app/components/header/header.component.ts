@@ -29,6 +29,7 @@ export class HeaderComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    console.log(this.header);
   }
 
   playVideo(e) {

@@ -25,13 +25,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.postsService.getPages().then((pages: Post[]) => {
+
       this.page = pages[0];
-      if (this.page.acf.header_image) {
-        this.header.background =  this.page.acf.header_image;
-      } else { this.header.background =  this.page.acf.header_video; }
+      if (this.page.acf.header.header_image) {
+        this.header.background = this.page.acf.header.header_image;
+      } else { this.header.background =  this.page.acf.header.header_video; }
       this.header.title = this.page.title.rendered;
-      this.portraits.push(this.page.acf.henri);
       this.portraits.push(this.page.acf.wia);
+      this.portraits.push(this.page.acf.henri);
     });
 
     this.postsService.getCategories().then((categories: Category[]) => {

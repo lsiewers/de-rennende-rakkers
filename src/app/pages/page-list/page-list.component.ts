@@ -49,9 +49,9 @@ export class PageListComponent implements OnInit, OnChanges {
         this.pages = posts.filter(post => post.slug !== this.route.snapshot.params.slug)
 
         if (this.pages[0]) {
-          if (this.pages[0].acf.header_image) {
-            this.img = this.pages[0].acf.header_image;
-          } else { this.img =  this.pages[0].acf.header_video; }
+          if (this.pages[0].acf.header.header_image) {
+            this.img = this.pages[0].acf.header.header_image;
+          } else { this.img =  this.pages[0].acf.header.header_video; }
         }
       });
     }
@@ -59,13 +59,13 @@ export class PageListComponent implements OnInit, OnChanges {
 
   changeGallery(i) {
     if (this.pages[i]) {
-      if (this.pages[i].acf.header_image) {
-        if (this.img !== this.pages[i].acf.header_image) {
-          this.animateGallery(this.pages[i].acf.header_image);
+      if (this.pages[i].acf.header.header_image) {
+        if (this.img !== this.pages[i].acf.header.header_image) {
+          this.animateGallery(this.pages[i].acf.header.header_image);
         }
       } else {
-        if (this.img !== this.pages[i].acf.header_video) {
-          this.animateGallery(this.pages[i].acf.header_video);
+        if (this.img !== this.pages[i].acf.header.header_video) {
+          this.animateGallery(this.pages[i].acf.header.header_video);
         }
       }
     }

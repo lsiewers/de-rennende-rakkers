@@ -8,10 +8,10 @@
     <article class="intro">
       <div class="intro__portraits">
         <figure class="intro__portraits__portrait" *ngFor="let portrait of portraits">
-          <img class="intro__portraits__portrait__img" [src]="portrait.sizes.medium" [alt]="portrait.title">
+          <img class="intro__portraits__portrait__img" [src]="portrait.image.sizes.medium" [alt]="portrait.name">
           <figcaption class="intro__portraits__portrait__caption">
-            <img src="{{wpBase}}}assets/img/bus.png" alt="{{portrait.title}}'s bus">
-            {{portrait.title}}
+            <img src="{{wpBase}}assets/img/bus.png" alt="{{portrait.name}}'s bus">
+            {{portrait.name}}
           </figcaption>
         </figure>
       </div>

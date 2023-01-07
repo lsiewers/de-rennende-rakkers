@@ -6,10 +6,10 @@ import { environment } from 'environments/environment';
 @Injectable()
 export class AppService {
 
-private _wpBase = environment.apiRef;
+private _apiRef = environment.apiRef;
 
 constructor(private http: HttpClient) { }
   getMetadata(): Observable<any> {
-    return this.http.get<any>(this._wpBase + `settings`);
+    return this.http.get<any>(this._apiRef + `settings`);
   }
 }

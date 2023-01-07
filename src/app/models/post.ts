@@ -8,11 +8,13 @@ export class Post {
       rendered: string;
   };
   acf: {
-    header_image?, header_video?: {
-      type: string;
-      subtype: string;
-      url: string;
-      title: string;
+    header: {
+      header_image?, header_video?: {
+        type: string;
+        subtype: string;
+        url: string;
+        title: string;
+      };
     };
     wia?, henri?: {
       title: string;
