@@ -21,10 +21,10 @@
 
   &__gallery {
     overflow: hidden;
-    border-radius: size(1);
     background-color: darken(color(red), 5%);
     position: relative;
     margin-top: -#{size(4)};
+    border-radius: size(1);
 
     @include respond-to(large) {
       height: calc(100% + #{size(2)});
@@ -45,6 +45,7 @@
       display: block;
       min-height: 100%;
       min-width: 100%;
+      border-radius: size(1);
     }
   }
 

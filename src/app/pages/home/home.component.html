@@ -5,18 +5,18 @@
       <div class="border__busses"></div>
     </div>
 
-    <article class="intro">
-      <div class="intro__portraits">
-        <figure class="intro__portraits__portrait" *ngFor="let portrait of portraits">
-          <img class="intro__portraits__portrait__img" [src]="portrait.image.sizes.medium" [alt]="portrait.name">
-          <figcaption class="intro__portraits__portrait__caption">
+    <article class="home__intro">
+      <div class="home__intro__portraits">
+        <figure class="home__intro__portraits__portrait" *ngFor="let portrait of portraits">
+          <img class="home__intro__portraits__portrait__img" [src]="portrait.image.sizes.medium" [alt]="portrait.name">
+          <figcaption class="home__intro__portraits__portrait__caption">
             <img src="{{wpBase}}assets/img/bus.png" alt="{{portrait.name}}'s bus">
             {{portrait.name}}
           </figcaption>
         </figure>
       </div>
 
-      <p class="intro__content content" *ngIf="page?.acf.intro" [innerHTML]="page?.acf.intro"></p>
+      <p class="intro content" *ngIf="page?.acf.intro" [innerHTML]="page?.acf.intro"></p>
     </article>
 </main>
 

@@ -11,7 +11,7 @@
       >
       <video
         *ngIf="img.type == 'video' && !animate"
-        (loadedmetadata)="dataLoaded = true"
+        (loadeddata)="dataLoaded = true"
         appObserver
         (viewChange)="playVideo($event)"
         @fade

@@ -28,17 +28,5 @@ export class HeaderComponent implements AfterViewInit {
   constructor() {
   }
 
-  ngAfterViewInit(): void {
-    console.log(this.header);
-  }
-
-  playVideo(e) {
-    e.target.muted = true;
-    this.isLoaded = true;
-    if (this.inView) {
-      e.target.play();
-    } else if (!e.target.paused) {
-      e.target.stop();
-    }
-  }
+  ngAfterViewInit(): void {}
 }

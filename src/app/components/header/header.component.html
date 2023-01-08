@@ -25,16 +25,14 @@
     <video
       @fade
       class="header__bg__video"
-      *ngIf="header"
+      *ngIf="header.background?.type == 'video'"
+      async
       loop
       playsinline
       muted
       autoplay
     >
-      <source
-        [src]="header.background.url"
-        [title]="header.background.title"
-        [type]="'video/' + header.background.subtype">
+      <source [src]="header.background.url" type="video/mp4">
       Uw browser ondersteunt het video-formaat helaas niet. We raden aan om een andere browser te gebruiken of uw huidige browser te updaten.
     </video>
   </figure>
