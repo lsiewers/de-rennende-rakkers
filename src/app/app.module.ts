@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -21,33 +21,26 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { ObserverDirective } from './directives/observer.directive';
 import { FacebookComponent } from './components/facebook/facebook.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    PageListComponent,
-    ContentPageComponent,
-    HomeComponent,
-    HeaderComponent,
-    FooterComponent,
-    NavigationComponent,
-    SafeHtmlPipe,
-    ObserverDirective,
-    FacebookComponent,
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    RoutingModule,
-    IconSpriteModule,
-    ClickOutsideModule,
-    BrowserAnimationsModule,
-  ],
-  providers: [DeviceDetectorService],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA,
-    NO_ERRORS_SCHEMA
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        PageListComponent,
+        ContentPageComponent,
+        HomeComponent,
+        HeaderComponent,
+        FooterComponent,
+        NavigationComponent,
+        SafeHtmlPipe,
+        ObserverDirective,
+        FacebookComponent,
+    ],
+    schemas: [
+        CUSTOM_ELEMENTS_SCHEMA,
+        NO_ERRORS_SCHEMA
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        FormsModule,
+        RoutingModule,
+        IconSpriteModule,
+        ClickOutsideModule,
+        BrowserAnimationsModule], providers: [DeviceDetectorService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
