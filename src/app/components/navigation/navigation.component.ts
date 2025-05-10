@@ -6,10 +6,11 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 import { environment } from 'environments/environment';
 
 @Component({
-  selector: 'app-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss'],
-  providers: [PostsService]
+    selector: 'app-navigation',
+    templateUrl: './navigation.component.html',
+    styleUrls: ['./navigation.component.scss'],
+    providers: [PostsService],
+    standalone: false
 })
 export class NavigationComponent implements OnInit {
   @Input() stickyNav = false;

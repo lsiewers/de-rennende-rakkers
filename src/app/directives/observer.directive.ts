@@ -1,7 +1,8 @@
 import { Directive, ElementRef, Output, EventEmitter } from '@angular/core';
 
 @Directive({
-  selector: '[appObserver]',
+    selector: '[appObserver]',
+    standalone: false
 })
 export class ObserverDirective {
   @Output() viewChange = new EventEmitter(true);

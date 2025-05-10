@@ -10,11 +10,12 @@ import { environment } from 'environments/environment';
 
 
 @Component({
-  selector: 'app-content-page',
-  templateUrl: './content-page.component.html',
-  styleUrls: ['./content-page.component.scss'],
-  providers: [PostsService],
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-content-page',
+    templateUrl: './content-page.component.html',
+    styleUrls: ['./content-page.component.scss'],
+    providers: [PostsService],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class ContentPageComponent implements OnInit {
   header: Header = {background: {type: '', subtype: '', url: '', title: ''}, title: ''};

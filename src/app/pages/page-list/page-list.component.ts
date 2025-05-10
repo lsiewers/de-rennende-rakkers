@@ -8,21 +8,22 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 import { environment } from 'environments/environment';
 
 @Component({
-  selector: 'app-page-list',
-  templateUrl: './page-list.component.html',
-  styleUrls: ['./page-list.component.scss'],
-  providers: [PostsService],
-  animations: [
-    trigger('fade', [
-        transition('void => *', [
-            style({opacity: 0}),
-            animate('600ms cubic-bezier(0.215, 0.610, 0.355, 1)')
-        ]),
-        transition('* => void', [
-            animate('400ms ease-out', style({opacity: 1}))
+    selector: 'app-page-list',
+    templateUrl: './page-list.component.html',
+    styleUrls: ['./page-list.component.scss'],
+    providers: [PostsService],
+    animations: [
+        trigger('fade', [
+            transition('void => *', [
+                style({ opacity: 0 }),
+                animate('600ms cubic-bezier(0.215, 0.610, 0.355, 1)')
+            ]),
+            transition('* => void', [
+                animate('400ms ease-out', style({ opacity: 1 }))
+            ])
         ])
-    ])
-  ]
+    ],
+    standalone: false
 })
 export class PageListComponent implements OnInit, OnChanges {
   @Input() category: Category;

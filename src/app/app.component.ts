@@ -5,21 +5,22 @@ import { trigger, transition, style, animate } from '@angular/animations';
 import { environment } from 'environments/environment';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [AppService],
-  animations: [
-    trigger('fade', [
-        transition('void => *', [
-            style({opacity: 0}),
-            animate('600ms cubic-bezier(0.215, 0.610, 0.355, 1)')
-        ]),
-        transition('* => void', [
-            animate('400ms ease-out', style({opacity: 1}))
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    providers: [AppService],
+    animations: [
+        trigger('fade', [
+            transition('void => *', [
+                style({ opacity: 0 }),
+                animate('600ms cubic-bezier(0.215, 0.610, 0.355, 1)')
+            ]),
+            transition('* => void', [
+                animate('400ms ease-out', style({ opacity: 1 }))
+            ])
         ])
-    ])
-  ]
+    ],
+    standalone: false
 })
 export class AppComponent implements AfterViewInit {
   loading;

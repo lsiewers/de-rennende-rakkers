@@ -6,11 +6,12 @@ import { Header } from 'app/models/header';
 import { environment } from 'environments/environment';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  providers: [PostsService],
-  encapsulation: ViewEncapsulation.None
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    providers: [PostsService],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class HomeComponent implements OnInit {
   page: Post;
