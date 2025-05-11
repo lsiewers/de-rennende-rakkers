@@ -15,7 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
-import { ClickOutsideModule } from 'ng-click-outside';
+import { NgClickOutsideDirective } from 'ng-click-outside2';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { ObserverDirective } from './directives/observer.directive';
@@ -41,6 +41,6 @@ import { FacebookComponent } from './components/facebook/facebook.component';
         FormsModule,
         RoutingModule,
         IconSpriteModule,
-        ClickOutsideModule,
+        NgClickOutsideDirective,
         BrowserAnimationsModule], providers: [DeviceDetectorService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
