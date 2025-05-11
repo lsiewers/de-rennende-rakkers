@@ -27,7 +27,7 @@
     "ng-click-outside": "^4.0.0",
     "ng-click-outside2": "^17.0.0",
     "ngx-device-detector": "^4.0.1",
-    "rxjs": "^6.5.1",
+    "rxjs": "^6.6.7",
     "rxjs-compat": "^6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "^0.15.0"

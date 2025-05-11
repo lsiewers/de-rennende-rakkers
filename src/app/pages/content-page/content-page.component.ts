@@ -3,10 +3,11 @@ import { PostsService } from '../posts.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Post } from '../../models/post';
-import 'rxjs/add/operator/switchMap';
+
 import { Header } from 'app/models/header';
 import { Category } from 'app/models/category';
-import { environment } from 'environments/environment';
+import { environment } from 'environments/environment.prod';
+import { switchMap } from 'rxjs/operators';
 
 
 @Component({
@@ -32,22 +33,22 @@ export class ContentPageComponent implements OnInit {
   }
 
   setPageData() {
-    this.route.paramMap
-    .switchMap((params: ParamMap) =>
-      this.pagesService.getPost(params.get('slug')))
-    .subscribe(
-      (page: Post[]) => {
-        this.page = page[0];
-        if (this.page.acf.header.header_image) {
-          this.header.background =  this.page.acf.header.header_image;
-        } else { this.header.background =  this.page.acf.header.header_video; }
-        this.header.title = this.page.title.rendered;
-        this.content = this.page.content.rendered;
+    this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.pagesService.getPost(params.get('slug'))))
+      .subscribe(
+        (page: Post[]) => {
+          this.page = page[0];
+          if (this.page.acf.header.header_image) {
+            this.header.background =  this.page.acf.header.header_image;
+          } else { this.header.background =  this.page.acf.header.header_video; }
+            this.header.title = this.page.title.rendered;
+            this.content = this.page.content.rendered;
 
-        this.pagesService.getCategories().then((categories: Category[]) => {
-          this.category = categories.filter(cat => cat.id === this.page.categories[0] )[0];
-        });
-      },
+            this.pagesService.getCategories().then((categories: Category[]) => {
+              this.category = categories.filter(cat => cat.id === this.page.categories[0] )[0];
+            });
+        },
       (err: HttpErrorResponse) => err.error instanceof Error ? console.log('An error occurred:', err.error.message) : console.log(`Backend returned code ${err.status}, body was: ${err.error}`)
     );
   }

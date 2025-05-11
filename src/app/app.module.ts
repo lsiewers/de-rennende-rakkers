@@ -21,6 +21,8 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { ObserverDirective } from './directives/observer.directive';
 import { FacebookComponent } from './components/facebook/facebook.component';
 
+import { APP_BASE_HREF } from '@angular/common';
+
 @NgModule({ declarations: [
         AppComponent,
         PageListComponent,
@@ -37,10 +39,19 @@ import { FacebookComponent } from './components/facebook/facebook.component';
         CUSTOM_ELEMENTS_SCHEMA,
         NO_ERRORS_SCHEMA
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+    bootstrap: [AppComponent], 
+    imports: [
+        BrowserModule,
         FormsModule,
         RoutingModule,
         IconSpriteModule,
         NgClickOutsideDirective,
-        BrowserAnimationsModule], providers: [DeviceDetectorService, provideHttpClient(withInterceptorsFromDi())] })
+        BrowserAnimationsModule
+    ],
+    providers: [
+        DeviceDetectorService, 
+        provideHttpClient(withInterceptorsFromDi()),
+        { provide: APP_BASE_HREF, useValue: '/' } 
+    ],
+})
 export class AppModule { }
